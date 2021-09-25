@@ -1,0 +1,27 @@
+<h4 class="card-title mb-4">Lista de Fazendas</h4>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Filtrar por:</label>
+    <div class="col-sm-10">
+        <input class="form-control" [(ngModel)]="filtro" />
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Dono</th>
+            <th>Detalhes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fazenda of farmFilter">
+            <td class="text-center align-middle">{{ fazenda.id }}</td>
+            <td class="align-middle">{{ fazenda.name }}</td>
+            <td class="align-middle">{{ fazenda.owner }}</td>
+            <td class="text-center align-middle">
+                <a [routerLink]="['/inventario/detalhe', fazenda.id ]" class="btn btn-success">Details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

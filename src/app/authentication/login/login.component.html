@@ -1,0 +1,22 @@
+<div class="card" id="telaLogin" style="width: 35%;">
+    <div class="card-body">
+        <form #loginForm='ngForm' (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Login:</label>
+                <input class="form-control" required name="login" id="login" [(ngModel)]="login.log"  />
+                <div class="invalid-feedback">
+                    Login Inválido.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha:</label>
+                <input class="form-control" required name="senha" id="senha" [(ngModel)]="login.senha" />
+                <div class="invalid-feedback">
+                    Senha Inválida.
+                </div>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success btn-block">Entrar</button>
+            <button class="btn btn-warning mr-2 btn-block ">Esqueci minha senha.</button>
+        </form>
+    </div>
+</div>

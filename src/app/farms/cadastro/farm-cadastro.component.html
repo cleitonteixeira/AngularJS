@@ -1,0 +1,33 @@
+<h4 class="card-title mb-4">Cadastro Fazenda</h4>
+<form #farmForm='ngForm' class="col-8 mr-auto" >
+    <div class="form-group row">
+        <label for="fazenda" class="col-sm-3 col-form-label">Fazenda:</label>
+        <div class="col-sm-9 ml-0">
+            <input class="form-control" required name="fazenda" id="fazenda" [(ngModel)]="fazenda"/>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="owner" class="col-sm-3 col-form-label">Proprietário:</label>
+        <div class="col-sm-9 ml-0">
+            <input class="form-control" required name="owner" id="owner" [(ngModel)]="owner"/>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label for="cpf" class="col-sm-3 col-form-label">CPF:</label>
+        <div class="col-sm-9 ml-0">
+            <input class="form-control" required name="cpf" id="cpf" [(ngModel)]="cpf"/>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-sm-10">
+          <button [disabled]="farmForm.invalid" (click)="save()" class="btn btn-success mr-2">Salvar</button>
+          <button [routerLink]="['/inventario']" class="btn btn-secondary mr-2">Voltar</button>
+        </div>
+    </div>
+</form>
