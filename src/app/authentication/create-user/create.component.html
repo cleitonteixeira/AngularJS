@@ -1,0 +1,45 @@
+<div class="card" id="telaLogin" style="width: 35%;">
+    <div class="card-body">
+        <form #createForm='ngForm' (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <app-alert-form *ngIf="salvo" [type]="type" [alertText]="alertText"></app-alert-form>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nome:</label>
+                <input class="form-control" required name="name" id="name" [(ngModel)]="name"  />
+                <div class="invalid-feedback">
+                    Nome Inválido.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Usuário:</label>
+                <input class="form-control" required name="name" id="name" [(ngModel)]="username"  />
+                <div class="invalid-feedback">
+                    Usuário Inválido.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-mail:</label>
+                <input class="form-control" required name="email" id="email" [(ngModel)]="email"  />
+                <div class="invalid-feedback">
+                    Email Inválido.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha:</label>
+                <input class="form-control" type="password" required name="password" id="password" [(ngModel)]="password" />
+                <div class="invalid-feedback">
+                    Senha Inválida.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirmação de Senha:</label>
+                <input class="form-control" type="password" required name="confirm_password" id="confirm_password" [(ngModel)]="confirm_password" />
+                <div class="invalid-feedback">
+                    Senha Inválida.
+                </div>
+            </div>
+            <button type="submit" [disabled]="createForm.invalid" class="btn btn-success btn-block">Salvar</button>
+        </form>
+    </div>
+</div>

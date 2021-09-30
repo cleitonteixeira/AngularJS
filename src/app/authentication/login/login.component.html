@@ -16,7 +16,7 @@
                 </div>
             </div>
             <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success btn-block">Entrar</button>
-            <button class="btn btn-warning mr-2 btn-block ">Esqueci minha senha.</button>
+            <a [routerLink]="['/create-user']" class="btn btn-success btn-block">Cadastrar Conta</a>
         </form>
     </div>
 </div>

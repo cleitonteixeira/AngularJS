@@ -7,6 +7,7 @@ import { AuthGuard } from "./shared/auth.guard";
 import { FarmComponent } from "./farms/farm.component";
 import { FarmCadastroComponent } from "./farms/cadastro/farm-cadastro.component";
 import { FarmListComponent } from "./farms/lista/farm-list.component";
+import { CreateComponent } from "./authentication/create-user/create.component";
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     component: AuthenticationComponent,
     children:[
       { path: '', redirectTo: '/login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'create-user', component: CreateComponent}
     ]
   },
   ];

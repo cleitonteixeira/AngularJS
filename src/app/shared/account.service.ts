@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../authentication/create-user/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+  private user: string = 'http://localhost:8000/api/v2/create-user/';
+
 
   login(user: any) {
     return new Promise((resolve) => {
@@ -15,9 +19,12 @@ export class AccountService {
     });
   }
 
-  createAccount(account: any) {
-    return new Promise((resolve) => {
-      resolve(true);
-    });
+  createAccount(user: User): Observable<User>{
+    if(user.id){
+      return this.http.put<User>(`${this.user}/${user.id}`, user);
+    }else{
+      console.log(user)
+      return this.http.post<User>(`${this.user}`, user);
+    }
   }
 }
