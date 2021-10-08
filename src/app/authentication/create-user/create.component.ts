@@ -36,25 +36,46 @@ export class CreateComponent implements OnInit {
     this.user.email = this.email;
     this.user.password = this.password;
     this.user.confirm_password = this.confirm_password;
-    try {
+
+      this.accountService.createAccount(this.user)
+          .subscribe((data: User) =>{
+            this.alertText = "Usuário "+data.name+" criado com sucesso!";
+            this.type = "success";
+            this.salvo = true;
+
+            setTimeout(()=> {this.salvo = false;this.router.navigate(['login']);}, 3000);
+          },
+          error => {
+            console.log(error)
+          });
+
+    /* try {
       this.accountService.createAccount(this.user).subscribe({
         next: user => {
-          this.alertText = "Usuário "+this.user.name+" criado com sucesso!";
+          this.alertText = "Usuário "+user.name+" criado com sucesso!";
           this.type = "success";
           this.salvo = true;
 
           setTimeout(()=> {this.salvo = false;this.router.navigate(['login']);}, 3000);
           
         },
-        error: err => console.log("Error", err)
-    });
+        error: err =>{
+          err.forEach(err, function(value, key) {
+            console.log(value);
+          });
+          this.alertText = err;
+          this.type = "success";
+          this.salvo = true;
+          
+         }
+    }); */
       //const result = await this.accountService.createAccount(this.user);
       //console.log(`Usuário Criado: ${result}`);
 
       // navego para a rota vazia novamente
       // this.router.navigate(['']);
-    } catch (error) {
+    /* } catch (error) {
       console.error(error);
-    }
+    } */
   }
 }

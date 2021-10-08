@@ -5,4 +5,5 @@ export class User{
     password: String;
     confirm_password: String;
     email: String;
+    token: String;
 }
