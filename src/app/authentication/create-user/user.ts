@@ -6,4 +6,6 @@ export class User{
     confirm_password: String;
     email: String;
     token: String;
+    email_log: string;
+    password_log: string;
 }
